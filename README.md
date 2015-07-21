@@ -1,5 +1,3 @@
-# jQuery.cssAssist
-
 ## jQuery.cssAssist.js
 
 _もうCSSファイルにたくさんの数値設定CLASSを記述する必要はなし！_<br />

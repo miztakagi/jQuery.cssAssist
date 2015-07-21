@@ -107,3 +107,13 @@ _This script will automatically set Expand the simple CLASS specified in the sty
 	            </tr>
 	            
 	        </table>
+	        
+***
+
+### Copyright
+Copyright (c) 2015 miz.takagi [miz.takagi@gmail.com](miz.takagi@gmail.com)
+
+### Licence
+This software is released under the MIT License, see LICENSE.txt.<br />
+MIT: [http://opensource.org/licenses/mit-license.php](http://opensource.org/licenses/mit-license.php)
+

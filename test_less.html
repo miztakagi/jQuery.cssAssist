@@ -1,0 +1,132 @@
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>css基本4プロパティをスクリプトで設定する (less版)</title>
+    <link rel="stylesheet/less" type="text/css" href="./less/style.less">
+    <script src="http://code.jquery.com/jquery-1.11.1.min.js" type="text/javascript"></script>
+    <script src="./js/jQuery.noncss4property-1.7.min.js" type="text/javascript"></script>
+    <script src="./less/less.min.js" type="text/javascript"></script>
+</head>
+<body>
+
+<div id="main">
+    <div id="title" class="title al-c w-80p f-24 mb--1.4em" style="margin: 20px auto; padding: 20px 10px;">
+        jQuery.setWidthFontsize.js<br /><span class="red f-16">No need basic 4 property css class!!<br />auto set by script width, font-size, margin and padding</span>
+    </div>
+    
+    <div id="content" class="w-960">
+        <table class="table mt-20">
+            <caption>○ TYPE-1: colgroup w-*** 設定（左右paddingとboder幅が加算されない！Good!!"）</caption>
+            <colgroup class="w-100" />
+            <colgroup class="w-200 dummy1" />
+            <colgroup class="dummy2 w-300 dummy3" />
+            <colgroup />
+            <tr>
+                <td>colgroup<br />w-100</td>
+                <td>colgroup<br />w-200</td>
+                <td>colgroup<br />w-300</td>
+                <td>colgroup<br />幅設定なし</td>
+            </tr>
+            <tr>
+                <td>実幅<br>100px</td>
+                <td>実幅<br>200px</td>
+                <td>実幅<br>300px</td>
+                <td>実幅<br>なりゆき</td>
+            </tr>
+        </table>
+
+       <table class="table">
+            <caption>○ TYPE-2: td w-*** 設定（左右padding 5px*2 が相殺され boder幅 1px が加算される）</caption>
+            <tr>
+                <td class="w-100">td class<br />w-100</td>
+                <td class="w-200">td class<br />w-200</td>
+                <td class="w-300">td class<br />w-300</td>
+                <td>td<br />幅設定なし</td>
+            </tr>
+            <tr>
+                <td>実幅<br>101px</td>
+                <td>実幅<br>201px</td>
+                <td>実幅<br>301px</td>
+                <td>実幅<br>なりゆき</td>
+            </tr>
+        </table>
+        
+        <table class="table">
+            <caption>△ TYPE-3: td class + style width 設定<br />（w-*** が設定されているtdは、左右padding 10px*2 が相殺され boder幅 1px が加算される）</caption>
+            <tr>
+                <td class="w-100" style="padding: 5px 10px;">td class<br />w-100</td>
+                <td class="w-200" style="padding: 5px 10px;">td class<br />w-200</td>
+                <td class="w-300" style="padding: 5px 10px;">td class<br />w-300</td>
+                <td style="padding: 5px 10px;">td style<br />幅設定なし</td>
+            </tr>
+            <tr>
+                <td>実幅<br>101px</td>
+                <td>実幅<br>201px</td>
+                <td>実幅<br>301px</td>
+                <td>実幅<br>なりゆき</td>
+            </tr>
+        </table>
+
+
+        
+        <table class="table">
+            <caption>× TYPE-4: td style width 設定（左右padding 5px*2 と boder幅 1px が加算される）</caption>
+            <tr>
+                <td style="width:100px">td style<br />width:100px</td>
+                <td style="width:200px">td style<br />width:200px</td>
+                <td style="width:300px">td style<br />width:300px</td>
+                <td>td style<br />幅設定なし</td>
+            </tr>
+            <tr>
+                <td>実幅<br>111px</td>
+                <td>実幅<br>211px</td>
+                <td>実幅<br>311px</td>
+                <td>実幅<br>なりゆき</td>
+            </tr>
+        </table>
+        
+        <table class="table">
+            <caption>× TYPE-5: td class width 設定（左右padding 5px*2 と boder幅 1px が加算される）</caption>
+            <tr>
+                <td class="width-100">td class<br />width-100</td>
+                <td class="width-200">td class<br />width-200</td>
+                <td class="width-300">td class<br />width-300</td>
+                <td>td style<br />幅設定なし</td>
+            </tr>
+            <tr>
+                <td>実幅<br>111px</td>
+                <td>実幅<br>211px</td>
+                <td>実幅<br>311px</td>
+                <td>実幅<br>なりゆき</td>
+            </tr>
+        </table>
+        
+    </div>
+    
+    <div id="text_block" class="w-84p">
+        <p>FONT-SIZE 設定なし root=62.5%=10px</p>
+        <div class="f-18">
+            <p class="f-10">f-10 ---> FONT-SIZE = 10px（絶対値）</p>
+            <p class="f--5px">f--5px ---> マイナス値は無視</p>
+            <p class="f-24px">f-24px ---> FONT-SIZE = 24px（絶対値）</p>
+            <p class="f-135p">f-135p ---> FONT-SIZE = 135%（親divの1.35倍）</p>
+            <p class="f-1.35em">f-1.35em ---> FONT-SIZE = 1.35em（親divの1.35倍）</p>
+            <p class="f-2.4rem">f-2.4rem ---> FONT-SIZE = 2.4rem（rootの2.4倍）</p>
+        </div>
+        <p class="f-2.4em">f-2.4em ---> FONT-SIZE = 2.4em（親=rootの2.4倍）</p>
+    </div>
+    
+    <div class="mt-30 mb-20px ml-3em mr-5rem" style="margin: 10px; padding: 5px; background-color: #EFF8FB">
+        <p class="al-c f-18">MARGIN-BOX</p>
+        <p class="al-c f-14">class="mt-30 mb-20px ml-3em mr-5rem" ---> style="margin: 30px 5rem 20px 3em;"</p>
+    </div>
+    
+    <div class="pt-30px pb--30" style="margin: 10px auto; padding: 15px; background-color: #EFFBEF">
+        <p class="al-c f-18">PADDING-BOX</p>
+        <p class="al-c f-14">class="pt-30px pb--30" style="padding: 15px; ---> style="padding: 30px 15px 15px;"</p>
+    </div>
+        
+</div>
+
+</body>
+</html>

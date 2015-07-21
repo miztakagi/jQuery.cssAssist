@@ -1,0 +1,55 @@
+@charset "UTF-8";
+
+/* base */
+html {
+    font-size: 62.5%;
+}
+
+body {
+    font-family: 'Hiragino Kaku Gothic ProN', Meiryo, 'MS PGothic', Sans-serif;
+    line-height: 1.0;
+    background: #fff;
+    color: #336;
+}
+
+
+/* float */
+.clear-fix {
+    display: block;
+    min-height: 1%;
+    overflow: hidden;
+}
+.clear-fix:after {
+    clear: both;
+    content: ".";
+    display: block;
+    height: 0;
+    visibility: hidden;
+}
+
+.fl-l {
+    float: left;
+}
+.fl-r {
+    float: right;
+}
+
+/* align */
+.al-l {
+    text-align: left;
+}
+.al-c {
+    text-align: center;
+}
+.al-r {
+    text-align: right;
+}
+
+/* table */
+table {
+  border-collapse: collapse;
+  border-spacing: 0px;
+}
+
+
+
